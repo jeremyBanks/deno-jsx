@@ -36,6 +36,20 @@ export function h(
   return { type, props: { ...props, children } };
 }
 
+export function jsx(
+  type: Component | string,
+  props?: {
+    [prop: string]: unknown,
+    children: Children
+  }
+): JSX.Element {
+  return { type, props };
+}
+
+export const jsxs = jsx;
+export const jsxDEV = jsx;
+export const jsxsDEV = jsx;
+
 export function Fragment({ children }: Children) {
   return children;
 }
