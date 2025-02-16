@@ -33,7 +33,9 @@ export function h(
   props?: { [prop: string]: unknown },
   ...children: (Node | litaral | null | false)[]
 ): JSX.Element {
-  return { type, props: { ...props, children } };
+  return { type, props: { ...props, children }, [Symbol.for("Deno.customInspect")]() {
+    return renderToString(this)
+  } };
 }
 
 export function jsx(
